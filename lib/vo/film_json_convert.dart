@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:app/film/film_list_response.dart';
+import 'package:app/vo/film_list_response.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 

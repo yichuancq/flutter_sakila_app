@@ -1,4 +1,4 @@
-import 'package:app/film/film_list_response.dart';
+import 'package:app/vo/film_list_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,10 +6,8 @@ import 'package:flutter/material.dart';
 class FilmListItem extends StatelessWidget {
   /// date item
   final Data filmItem;
-
   /// 宽度
   final double width;
-
   const FilmListItem({
     this.filmItem,
     Key key,

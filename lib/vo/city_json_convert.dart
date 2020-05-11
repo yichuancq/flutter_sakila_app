@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:app/address/city_list_response.dart';
+import 'package:app/vo/city_list_response.dart';
 import 'package:dio/dio.dart';
 
 /// 获取网络数据

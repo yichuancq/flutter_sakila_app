@@ -1,4 +1,4 @@
-import 'package:app/address/country_list_response.dart';
+import 'package:app/vo/country_list_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +7,10 @@ import 'city_list.dart';
 /// 简单列表项
 class CountryListItem extends StatelessWidget {
   final BuildContext context;
+
   /// date item
   final Data countryItem;
+
   /// 宽度
   final double width;
 

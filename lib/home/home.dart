@@ -1,4 +1,5 @@
 import 'package:app/address/country_list.dart';
+import 'package:app/staff/staff_list.dart';
 import 'package:app/util/my_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,14 @@ class HomePageState extends State<HomePage> {
   void onTabCountryInfo() {
     Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
       return new CountryPageList();
+    }));
+    print("onTabCountryInfo..");
+  }
+
+  //StaffPageList
+  void onTabStaffInfo() {
+    Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
+      return new StaffPageList();
     }));
     print("onTabCountryInfo..");
   }
@@ -50,7 +59,7 @@ class HomePageState extends State<HomePage> {
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: MyButton(
-              onPress: () {},
+              onPress: onTabStaffInfo,
               title: Text("员工信息",
                   style: TextStyle(fontSize: 15, color: Colors.white)),
               iconButton: new IconButton(

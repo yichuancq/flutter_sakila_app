@@ -1,6 +1,6 @@
-
-import 'package:app/vo/country_json_convert.dart';
-import 'package:app/vo/country_list_response.dart';
+import 'package:app/staff/staff_list_item.dart';
+import 'package:app/vo/staff_json_convert.dart';
+import 'package:app/vo/staff_list_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -8,19 +8,17 @@ import 'package:flutter_easyrefresh/material_footer.dart';
 import 'package:flutter_easyrefresh/material_header.dart';
 import 'package:toast/toast.dart';
 
-import 'country_list_item.dart';
-
-class CountryPageList extends StatefulWidget {
-  CountryPageList({Key key}) : super(key: key);
+class StaffPageList extends StatefulWidget {
+  StaffPageList({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _CountryPageListState();
+    return _StaffPageListState();
   }
 }
 
-class _CountryPageListState extends State<CountryPageList> {
-  List<Data> _countryList = new List();
+class _StaffPageListState extends State<StaffPageList> {
+  List<Data> _staffList = new List();
   int _pageNum = 1;
   int _pageSize = 50;
   int _totalPage = 0;
@@ -72,16 +70,16 @@ class _CountryPageListState extends State<CountryPageList> {
   void loadData() async {
     print("on loadData...");
     //json 转换
-    CountryResponse filmListResponse =
-        await getHttpCountryData(_pageNum, _pageSize);
+    StaffVOResponse filmListResponse =
+        await getHttpStaffData(_pageNum, _pageSize);
     //读取json
     if (filmListResponse != null && filmListResponse.data != null) {
-      _countryList = filmListResponse.data;
+      _staffList = filmListResponse.data;
       //filmListResponse.totalPage 后端表的总记录数量
       //总页数
       //函数向上舍入为最接近的整数
       _totalPage = (filmListResponse.totalPage / _pageSize).ceil();
-      print("list size: ${_countryList.length}");
+      print("list size: ${_staffList.length}");
       print("_totalPage： ${_totalPage}");
       //更新列表
     }
@@ -92,10 +90,10 @@ class _CountryPageListState extends State<CountryPageList> {
 
   ///
   void getPageData() async {
-    CountryResponse filmListResponse =
-        await getHttpCountryData(_pageNum, _pageSize);
+    StaffVOResponse filmListResponse =
+        await getHttpStaffData(_pageNum, _pageSize);
     if (filmListResponse != null && filmListResponse.data != null) {
-      _countryList = filmListResponse.data;
+      _staffList = filmListResponse.data;
       //总页数
       //函数向上舍入为最接近的整数
       _totalPage = (filmListResponse.totalPage / _pageSize).ceil();
@@ -120,9 +118,9 @@ class _CountryPageListState extends State<CountryPageList> {
       slivers: <Widget>[
         SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
-            Data data = _countryList[index];
-            return CountryListItem(countryItem: data, context: context);
-          }, childCount: _countryList.length),
+            Data data = _staffList[index];
+            return StaffListItem(staffItem: data);
+          }, childCount: _staffList.length),
         ),
       ],
       // child: _filmsList(),
@@ -132,7 +130,7 @@ class _CountryPageListState extends State<CountryPageList> {
   //实现构建方法
   Widget _viewBuild() {
     Size size = MediaQuery.of(context).size;
-    if (_countryList == null || _totalPage == 0) {
+    if (_staffList == null || _totalPage == 0) {
       // 加载菊花
       return Center(
         child: CupertinoActivityIndicator(),
@@ -157,16 +155,16 @@ class _CountryPageListState extends State<CountryPageList> {
   ///释放
   @override
   dispose() {
-    _countryList = null;
+    _staffList = null;
     super.dispose();
   }
 
   ///title
   Widget _title() {
     return Text(
-        (_countryList == null || _totalPage == 0)
+        (_staffList == null || _totalPage == 0)
             ? "loading..."
-            : "country ${_pageNum} of ${_totalPage}",
+            : "staff ${_pageNum} of ${_totalPage}",
         style: TextStyle(fontSize: 15));
   }
 

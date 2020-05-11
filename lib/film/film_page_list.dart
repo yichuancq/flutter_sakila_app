@@ -1,13 +1,12 @@
 import 'package:app/page/film_list_item.dart';
 import 'package:app/vo/film_json_convert.dart';
+import 'package:app/vo/film_list_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_easyrefresh/material_footer.dart';
 import 'package:flutter_easyrefresh/material_header.dart';
 import 'package:toast/toast.dart';
-
-import 'film_list_response.dart';
 
 class FilmPageList extends StatefulWidget {
   FilmPageList({Key key}) : super(key: key);

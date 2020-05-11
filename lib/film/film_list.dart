@@ -1,8 +1,7 @@
 import 'package:app/vo/film_json_convert.dart';
+import 'package:app/vo/film_list_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'film_list_response.dart';
 
 class AlbumsList extends StatefulWidget {
   @override

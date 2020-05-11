@@ -1,4 +1,4 @@
-import 'package:app/address/city_list_response.dart';
+import 'package:app/vo/city_list_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
