@@ -175,7 +175,7 @@ class _FilmListState extends State<FilmPageList> {
   //实现构建方法
   Widget _viewBuild() {
     Size size = MediaQuery.of(context).size;
-    if (_filmList == null) {
+    if (_filmList == null || _totalPage == 0) {
       // 加载菊花
       return Center(
         child: CupertinoActivityIndicator(),
@@ -204,13 +204,21 @@ class _FilmListState extends State<FilmPageList> {
     super.dispose();
   }
 
+  ///title
+  Widget _title() {
+    return Text(
+        (_filmList == null || _totalPage == 0)
+            ? "loading..."
+            : "电影专辑 ${_pageNum} of ${_totalPage}",
+        style: TextStyle(fontSize: 15));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("电影专辑 ${_pageNum} of ${_totalPage}",
-            style: TextStyle(fontSize: 15)),
+        title: _title(),
         centerTitle: true,
       ),
       body: _viewBuild(),
