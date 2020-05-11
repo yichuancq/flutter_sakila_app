@@ -1,3 +1,4 @@
+import 'package:app/address/country_list.dart';
 import 'package:app/util/my_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,14 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  ///country
+  void onTabCountryInfo() {
+    Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
+      return new CountryPageList();
+    }));
+    print("onTabCountryInfo..");
+  }
+
   ///menu
   Widget _gridViewMenu() {
     return new Container(
@@ -27,7 +36,7 @@ class HomePageState extends State<HomePage> {
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: MyButton(
-              onPress: () {},
+              onPress: onTabCountryInfo,
               title: Text("地址信息",
                   style: TextStyle(fontSize: 15, color: Colors.white)),
               iconButton: new IconButton(
