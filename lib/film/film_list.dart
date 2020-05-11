@@ -1,6 +1,7 @@
 import 'package:app/vo/film_json_convert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'film_list_response.dart';
 
 class AlbumsList extends StatefulWidget {
@@ -68,9 +69,10 @@ class _FilmListState extends State<AlbumsList> with TickerProviderStateMixin {
   void loadData() async {
     print("on loadData...");
     //json 转换
-    FilmListResponse filmListResponse = await convertFromJson();
-    if (filmListResponse != null) {
-      //读取json
+//    FilmListResponse filmListResponse = await convertFromJson();
+    FilmListResponse filmListResponse = await getHttpFilmsData();
+    //读取json
+    if (filmListResponse != null && filmListResponse.data != null) {
       _filmList = filmListResponse.data;
       print("list size: ${_filmList.length}");
       //更新列表

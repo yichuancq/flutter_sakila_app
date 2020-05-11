@@ -5,7 +5,7 @@ class FilmListResponse {
   List<Data> data;
 
   FilmListResponse({this.code, this.msg, this.totalPage, this.data});
-
+  ///
   FilmListResponse.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     msg = json['msg'];

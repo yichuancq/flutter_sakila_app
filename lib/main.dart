@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'film/film_list.dart';
+import 'film/film_page_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AlbumsList(),
+      home: AlbumsPageList(),
     );
   }
 }
