@@ -1,11 +1,10 @@
 import 'dart:async';
 
+import 'package:app/page/sample_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_easyrefresh/material_footer.dart';
 import 'package:flutter_easyrefresh/material_header.dart';
-
-import 'file:///D:/AndroidStudioProjects/flutter_sakila_app/lib/page/sample_list_item.dart';
 
 /// 质感设计样式
 class MaterialPage extends StatefulWidget {
