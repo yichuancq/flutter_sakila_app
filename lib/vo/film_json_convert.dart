@@ -18,9 +18,10 @@ Future<FilmListResponse> convertFromJson() async {
 }
 
 /// 获取网络数据
-Future<FilmListResponse> getHttpFilmsData() async {
+Future<FilmListResponse> getHttpFilmsData(int pageNumber,int pageSize) async {
   try {
-    final String url = "http://192.168.0.106:8080/film/queryByPageFilmList?pageNumber=1&pageSize=10";
+    final String url =
+        "http://192.168.0.106:8080/film/queryByPageFilmList?pageNumber=${pageNumber}&pageSize=${pageSize}";
     Response response =
         await Dio().post(url, data: {"rating": "PG", "title": ""});
     if (response.statusCode == 200) {

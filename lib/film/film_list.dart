@@ -70,7 +70,7 @@ class _FilmListState extends State<AlbumsList> with TickerProviderStateMixin {
     print("on loadData...");
     //json 转换
 //    FilmListResponse filmListResponse = await convertFromJson();
-    FilmListResponse filmListResponse = await getHttpFilmsData();
+    FilmListResponse filmListResponse = await getHttpFilmsData(1, 20);
     //读取json
     if (filmListResponse != null && filmListResponse.data != null) {
       _filmList = filmListResponse.data;
