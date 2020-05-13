@@ -14,3 +14,48 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+   页码滑动加载
+```dart
+  ///上拉
+  Future _onRefresh() async {
+    print("_onRefresh...");
+    await Future.delayed(Duration(seconds: 2), () {
+      if (_pageNum - 1 <= 0) {
+        Toast.show("已经到达顶部,没有数据了！", context);
+        return;
+      }
+      if (_pageNum > 0 &&
+          _pageNum <= _totalPage &&
+          _currentPage >= 1 &&
+          _currentPage <= _totalPage) {
+        //load
+        _pageNum -= 1;
+        _currentPage -= 1;
+        getPageData();
+        setState(() {});
+      }
+    });
+  }
+
+  ///下拉
+  Future _onLoad() async {
+    print("_onLoad...");
+    await Future.delayed(Duration(seconds: 2), () {
+      if (_pageNum >= _totalPage) {
+        Toast.show("已经到达尾部,没有数据了！", context);
+        return;
+      }
+      if (_pageNum > 0 &&
+          _pageNum <= _totalPage &&
+          _currentPage >= 1 &&
+          _currentPage <= _totalPage) {
+        //load
+        _pageNum += 1;
+        _currentPage += 1;
+        getPageData();
+      }
+      setState(() {});
+    });
+  }
+```
