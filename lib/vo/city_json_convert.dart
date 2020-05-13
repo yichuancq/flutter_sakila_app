@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:app/vo/city_list_response.dart';
 import 'package:dio/dio.dart';
 
+import 'base_config.dart';
 /// 获取网络数据
 Future<CityResponse> getHttpCityData(
     int pageNumber, int pageSize, int countryId) async {
   try {
     final String url =
-        "http://192.168.0.106:8080/address/queryByPagCityList?pageNumber=${pageNumber}&pageSize=${pageSize}";
+        "${baseUrl}/address/queryByPagCityList?pageNumber=${pageNumber}&pageSize=${pageSize}";
     Response response =
         await Dio().post(url, data: {"countryId": "${countryId}"});
     if (response.statusCode == 200) {

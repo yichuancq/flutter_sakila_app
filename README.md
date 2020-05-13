@@ -15,6 +15,11 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+```dart
+///网络配置的URL
+final String baseUrl = "http://192.168.0.103:8080";
+```
+
    页码上拉滑动加载
 ```dart
   ///上拉
@@ -38,9 +43,9 @@ samples, guidance on mobile development, and a full API reference.
     });
   }
 ```
-  
+
   页码下拉滑动加载
-```dart 
+```dart
   ///下拉
   Future _onLoad() async {
     print("_onLoad...");

@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
+import 'base_config.dart';
 import 'country_list_response.dart';
-
 /// 获取网络数据
 Future<CountryResponse> getHttpCountryData(int pageNumber, int pageSize) async {
   try {
     final String url =
-        "http://192.168.0.106:8080/address/queryByPagCountryList?pageNumber=${pageNumber}&pageSize=${pageSize}";
+        "${baseUrl}/address/queryByPagCountryList?pageNumber=${pageNumber}&pageSize=${pageSize}";
     Response response =
         await Dio().post(url, data: {"rating": "PG", "title": ""});
     if (response.statusCode == 200) {

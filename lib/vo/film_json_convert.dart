@@ -4,6 +4,8 @@ import 'package:app/vo/film_list_response.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 
+import 'base_config.dart';
+
 ///
 Future<String> loadJsonFile() async {
   return await rootBundle.loadString('assets/json/response.json');
@@ -21,7 +23,7 @@ Future<FilmListResponse> convertFromJson() async {
 Future<FilmListResponse> getHttpFilmsData(int pageNumber,int pageSize) async {
   try {
     final String url =
-        "http://192.168.0.106:8080/film/queryByPageFilmList?pageNumber=${pageNumber}&pageSize=${pageSize}";
+        "${baseUrl}/film/queryByPageFilmList?pageNumber=${pageNumber}&pageSize=$pageSize";
     Response response =
         await Dio().post(url, data: {"rating": "PG", "title": ""});
     if (response.statusCode == 200) {
