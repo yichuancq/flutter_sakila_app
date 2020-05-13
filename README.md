@@ -15,7 +15,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-   页码滑动加载
+   页码上拉滑动加载
 ```dart
   ///上拉
   Future _onRefresh() async {
@@ -38,6 +38,10 @@ samples, guidance on mobile development, and a full API reference.
     });
   }
 
+```
+  
+  页码下拉滑动加载
+```dart 
   ///下拉
   Future _onLoad() async {
     print("_onLoad...");
